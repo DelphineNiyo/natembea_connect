@@ -357,7 +357,6 @@
             </div>
                 <a class="active" href="doctor_dashboard.php"><i class="fas fa-home"></i> Overview</a>
                 <li><a href="Manage_appointments.php"><i class="fas fa-calendar-alt"></i> Manage Appointments</a></li>
-                <li><a href="Patients_to_attend.php"><i class="fas fa-user-md"></i> Patients to attend</a></li>
                 <li><a href="Patient_Records.php"><i class="fas fa-folder-open"></i> Patient Records</a></li>
                 <li><a href="user_feedback.php"><i class="fas fa-comment-dots"></i> User Feedback</a></li>
                 <li><a href="profiledoctor.php"><i class="fas fa-user-edit"></i> Edit my profile</a></li>

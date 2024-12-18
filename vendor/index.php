@@ -149,10 +149,10 @@
     <img class="logo" src="../Images/logo.jpg" alt="Logo">
     <div class="navigation">
       <a href="login.php">Login</a>
-      <a href="Index.php">Home</a>
+      <a href="index.php">Home</a>
       <a href="AboutUs.php">About Us</a>
       <a href="ourservices.php">Our Services</a>
-      <a href="contactUs.php">Contact Us</a>
+      <a href="ContactUs.php">Contact Us</a>
     </div>
   </div>
 

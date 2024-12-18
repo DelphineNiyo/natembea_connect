@@ -131,7 +131,6 @@
     <a href="doctor_dashboard.php"><i class="fas fa-home"></i> Overview</a>
     <a href="Manage_appointments.php"><i class="fas fa-calendar-alt"></i> Manage Appointments</a>
     <a href="Patient_Records.php"><i class="fas fa-folder-open"></i>Manage Patient Records</a>
-    <a href="Patients_to_attend.php"><i class="fas fa-user-md"></i> Patients to attend</a>
     <a class="active" href="user_feedback.php"><i class="fas fa-comment-dots"></i> User Feedback</a>
     <a href="profiledoctor.php"><i class="fas fa-user-edit"></i> Edit my profile</a>
     <a href="doctor_logout.php"><i class="fas fa-sign-out-alt"></i> Logout</a>

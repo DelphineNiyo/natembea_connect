@@ -159,6 +159,7 @@
   <div class="container">
       <img class="logo" src="../Images/logo.jpg" alt="Logo">
       <div class="navigation" style="margin-top:-80px;">
+        <a href="login.php">Login</a>
         <a href="index.php"> Home</a>
         <a href="AboutUs.php">About Us</a>
         <a href="ourservices.php">Our Services</a>
@@ -172,7 +173,7 @@
       <h1 style="background-color:#781c2b; color:#e6b7b1;">Our Services</h1>
       <div class="service-list">
         <div class="service-item">
-          <img src="../Images/bookapp.png" alt="Book Consultation Online">
+          <img src="../Images/bookapp.jpg" alt="Book Consultation Online">
           <h3>Book Consultation Online</h3>
           <p>Schedule medical consultations online with our healthcare professionals from the comfort of your home.</p>
         </div>
@@ -191,7 +192,7 @@
     </div>
 
     <div class="testimonial-section">
-      <h2>What Our Clients Say</h2>
+      <h2>Feedback From Our Users</h2>
       <div class="testimonial-container">
         <div class="testimonial">
           <p>"Natembea Health Center platform has been a game-changer for me. I am now capable of meeting my doctors virtually."</p>
@@ -205,9 +206,9 @@
     </div>
 
     <div class="cta-section">
-      <h2>Ready to Experience Our Services?</h2>
-      <p>Take the first step towards better health today.</p>
-      <a href="contactUs.php" class="cta-btn">Contact Us</a>
+      <h2>Ready to Experience Exceptional Health Care?</h2>
+      <p>Reach out to us today.</p>
+      <a href="ContactUs.php" class="cta-btn">Contact Us</a>
     </div>
   </div>
 </body>
