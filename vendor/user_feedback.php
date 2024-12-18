@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>User Feedback | Natembea Online</title>
+  <title>User Feedback | Natembea Health Center</title>
   <link rel="stylesheet" type="text/css" href="style.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
   <style>
@@ -10,7 +10,7 @@
       font-family: 'Roboto', sans-serif;
       margin: 0;
       padding: 0;
-      background-color: #f2e9e4; /* Light brownish background */
+      background-color: #f2e9e4;
     }
 
     .container {
@@ -18,7 +18,7 @@
     }
 
     .topnav {
-      background-color: #5b0b0b; /* Dark Red */
+      background-color: #5b0b0b;
       color: white;
       display: flex;
       justify-content: center;
@@ -126,7 +126,7 @@
 
   <div class="sidenav">
     <div class="topnav-centered">
-      <img src="Images/logo.jpg" alt="Logo" style="height: 80px; margin-bottom:20px; margin-top:0;">
+      <img src="../Images/logo.jpg" alt="Logo" style="height: 80px; margin-bottom:20px; margin-top:0;">
     </div>
     <a href="doctor_dashboard.php"><i class="fas fa-home"></i> Overview</a>
     <a href="Manage_appointments.php"><i class="fas fa-calendar-alt"></i> Manage Appointments</a>
@@ -134,7 +134,6 @@
     <a href="Patients_to_attend.php"><i class="fas fa-user-md"></i> Patients to attend</a>
     <a class="active" href="user_feedback.php"><i class="fas fa-comment-dots"></i> User Feedback</a>
     <a href="profiledoctor.php"><i class="fas fa-user-edit"></i> Edit my profile</a>
-    <a href="News_and_Blog.php"><i class="fas fa-newspaper"></i> News and Blog</a>
     <a href="doctor_logout.php"><i class="fas fa-sign-out-alt"></i> Logout</a>
   </div>
 
@@ -156,34 +155,37 @@
       <?php
           // Include the connection file
           include 'connection.php';
-          // Fetch data from the "feedback" table
-          $sql = "SELECT * FROM feedback";
-          $result = $conn->query($sql);
+              $doctor_ID = isset($_SESSION['UserID']) ? $_SESSION['UserID'] : '';
 
-          if ($result->num_rows > 0) {
-            // Output data of each row
-            while($row = $result->fetch_assoc()) {
-          ?>
-          <tr>
-            <td><?php echo $row["name"]; ?></td>
-            <td><?php echo $row["email"]; ?></td>
-            <td><?php echo $row["subject"]; ?></td>
-            <td><?php echo $row["message"]; ?></td>
-            <td>$<?php echo $row["created_at"]; ?></td>
-            <td>
-              <form action="connection.php" method="get">
-                <button type="submit" name="update" style="background-color: #0d452f; color:white;padding:10px; margin-bottom:20px;">Respond</button>
-                <button type="submit" name="delete" style="background-color: #0d452f; color:white; padding:10px;">Delete</button>
-              </form>
-            </td>
-          </tr>
-          <?php
+          
+              // Prepare the SQL statement to prevent SQL injection
+              $stmt = $conn->prepare("SELECT * FROM feedback WHERE UserID = ?");
+              $stmt->bind_param("i", 23);
+              $stmt->execute();
+              $result = $stmt->get_result();
+
+              if ($result->num_rows > 0) {
+                // Output data of each row
+                while ($row = $result->fetch_assoc()) {
+                    echo "Something";
+                    echo "<tr>
+                            <td>" . htmlspecialchars($row['name']) . "</td>
+                            <td>" . htmlspecialchars($row['email']) . "</td>
+                            <td>" . htmlspecialchars($row['subject']) . "</td>
+                            <td>" . htmlspecialchars($row['Message']) . "</td>
+                            <td>" . htmlspecialchars($row['CreatedAt']) . "</td>
+                            <td>
+                              <form action='connection.php' method='get'>
+                                <button type='submit' name='update' style='background-color: #0d452f; color:white; padding:10px; margin-bottom:20px;'>Respond</button>
+                                <button type='submit' name='delete' style='background-color: #0d452f; color:white; padding:10px;'>Delete</button>
+                              </form>
+                            </td>
+                          </tr>";
+                }
+            } else {
+                echo "<tr><td colspan='6'>No records found</td></tr>";
             }
-          } else {
-            echo "0 results";
-          }
-          ?>
-
+            ?>
       </tbody>
     </table>
     <div class="new-feedback-badge">3</div>

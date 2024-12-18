@@ -1,15 +1,23 @@
 <?php
+include 'connection.php';
 // Initialize the error message variable
 $errorMsg = '';
+
 
 // Process form submission
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Include the database connection file
-    include 'connection.php';
+    echo "we are here\n";
+    echo "below\n";
 
     // Check if the connection is successful
-    if (!$conn) {
+    if (!$conn) 
+    {
         die("Connection failed: " . mysqli_connect_error());
+    }
+    else
+    {
+        echo "connection working\n";
     }
 
     // Retrieve form data and sanitize it
@@ -155,17 +163,17 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <p class="error-message"><?php echo $errorMsg; ?></p>
         <?php endif; ?>
         <!-- Sign Up Form -->
-        <form action="signUp.php" method="post" name="signupForm" id="signupForm">
+        <form action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>" method="post" name="signupForm" id="signupForm">
             <!-- Name Input -->
             <div class="form-group">
                 <label for="firstname">First Name:</label>
-                <input type="text" id="firstname" name="firstname" pattern="[A-Za-z ]+" title="Only letters allowed"
+                <input type="text" id="firstname" name="firstname" value="Daniel" pattern="[A-Za-z ]+" title="Only letters allowed"
                     placeholder="Enter your first name" required>
             </div>
 
             <div class="form-group">
-                <label for="lastname">First Name:</label>
-                <input type="text" id="lastname" name="lastname" pattern="[A-Za-z ]+" title="Only letters allowed"
+                <label for="lastname">Last Name:</label>
+                <input type="text" id="lastname" name="lastname" value="Byiringiro" pattern="[A-Za-z ]+" title="Only letters allowed"
                     placeholder="Enter your last name" required>
             </div>
             <!-- Gender Selection -->
@@ -194,25 +202,25 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <!-- Phone Number Input -->
             <div class="form-group">
                 <label for="phoneNumber">Phone Number:</label>
-                <input type="tel" id="phoneNumber" name="phoneNumber" pattern="[0-9]{10}" title="10 digits allowed"
+                <input type="tel" id="phoneNumber" name="phoneNumber" value="1234567890" pattern="[0-9]{10}" title="10 digits allowed"
                     placeholder="Enter your phone number" required>
             </div>
             <!-- Email Input -->
             <div class="form-group">
                 <label for="email">Email:</label>
-                <input type="email" id="email" name="email" placeholder="Enter your email" required>
+                <input type="email" id="email" name="email" value="d@gmail.com" placeholder="Enter your email" required>
             </div>
             <!-- Password Input -->
             <div class="form-group">
                 <label for="password">Password:</label>
                 <input type="password" id="password" name="password"
-                    pattern="^(?=.*\d)(?=.*[a-zA-Z]).{8,}$" title="Minimum 8 characters, at least one letter and one digit"
+                    pattern="^(?=.*\d)(?=.*[a-zA-Z]).{8,}$" value="12345678q" title="Minimum 8 characters, at least one letter and one digit"
                     placeholder="Enter your password" required>
             </div>
             <!-- Confirm Password Input -->
             <div class="form-group">
                 <label for="confirmPassword">Confirm Password:</label>
-                <input type="password" id="confirmPassword" name="confirmPassword"
+                <input type="password" id="confirmPassword" value="12345678q" name="confirmPassword"
                     pattern="^(?=.*\d)(?=.*[a-zA-Z]).{8,}$" title="Minimum 8 characters, at least one letter and one digit"
                     placeholder="Confirm your password" required>
             </div>

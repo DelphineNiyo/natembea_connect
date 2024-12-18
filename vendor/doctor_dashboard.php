@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Dashboard | Natembea Online</title>
+  <title>Dashboard | Natembea Health Center</title>
   <link rel="stylesheet" type="text/css" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -292,8 +292,6 @@
         margin-top: 0;
       }
 
-
-
       .sidenav a {
         padding: 20px 8px 6px 16px;
         text-decoration: none;
@@ -371,14 +369,14 @@
 
         <div class = "welcome">
             <h1>Welcome Doctor!</h1>
-            <p>We appreciate how you care for patients!</p>
+            <p>Your care for our patients is highly appreciated.</p>
         </div>
 
         <div class="intro">
-            <img src="Images/patients.png" alt="Patients" width="40%" style="border-radius: 20px; margin-bottom: 100 px;">
-            <h1>Need healthcare?</h1>
-            <p>Book an appointment with a health personnel for simplified medical services.</p>
-            <button onclick="document.location='manage_appointments.php'" >Manage Appointments</button>
+            <img src="../Images/patients.png" alt="Patients" width="40%" style="border-radius: 20px; margin-bottom: 100 px;">
+            <h1>View Your Patients and Data Here</h1>
+            <p>You'll find your appointments and relevant information that concern you here.</p>
+            <button onclick="document.location='Manage_appointments.php'" >Manage Appointments</button>
             
         </div>
 

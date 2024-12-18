@@ -151,7 +151,6 @@
       <a href="Index.php"> Home</a>
       <a href="AboutUs.php">About Us</a>
       <a href="ourservices.php">Our Services</a>
-      <a href="Blog&News.php">Blog & News</a>
       <a href="contactUs.php">Contact Us</a>
     </div>
   </div>

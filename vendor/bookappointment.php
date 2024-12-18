@@ -283,9 +283,8 @@ session_start();
                 if (isset($doctorList) && !empty($doctorList)) {
                     foreach ($doctorList as $doctor) {
                       
-                    //echo $doctor;
-                     echo "<option value=''>" .$doctor["LastName"]. "</option>";
-                     //echo "<option value=''>No doctors found</option>";
+                        echo "<option value='" . $doctor["UserID"] . "'>" . $doctor["FirstName"] . " " . $doctor["LastName"] . "</option>";
+
                     }
                 } else {
                     echo "<option value=''>No doctors found</option>";
@@ -349,12 +348,12 @@ session_start();
                             ?>
                             <tr>
                                 <td><?php echo $row['FullName']; ?></td>
-                                <td><?php echo $row['SelectedDoctor']; ?></td>
-                                <td><?php echo $row['ReasonForAppointment']; ?></td>
+                                <td><?php echo $doctor["LastName"]; ?></td>
+                                <td><?php echo $row['Description']; ?></td>
                                 <td><?php echo $row['AppointmentDate']; ?></td>
                                 <td><?php echo $row['AppointmentTime']; ?></td>
                                 <td class="table-actions">
-                                    <button style="background-color: #0d452f; color:white;margin-bottom:10px;" onclick="popUp('<?php echo $row['AppointmentID']; ?>', '<?php echo $row['FullName']; ?>','<?php echo $row['ReasonForAppointment']; ?>', '<?php echo $row['AppointmentDate']; ?>', '<?php echo $row['AppointmentTime']; ?>')">Update</button>
+                                    <button style="background-color:rgb(69, 13, 13); color:white;margin-bottom:10px;" onclick="popUp('<?php echo $row['AppointmentID']; ?>', '<?php echo $row['FullName']; ?>','<?php echo $row['ReasonForAppointment']; ?>', '<?php echo $row['AppointmentDate']; ?>', '<?php echo $row['AppointmentTime']; ?>')">Update</button>
                                     <button style="background-color: grey; color:white;"><a href="delete_appointment.php?appointment_id=<?php echo $row['AppointmentID']; ?>">Delete</a></button>
                                 </td>
                             </tr>

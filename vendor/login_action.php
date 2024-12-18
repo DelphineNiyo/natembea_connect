@@ -9,7 +9,7 @@ $_SESSION['error_message'] = '';
 
 
     // Get form data and sanitize it
- $email = mysqli_real_escape_string($conn, $_POST['email']);
+$email = mysqli_real_escape_string($conn, $_POST['email']);
 $password = mysqli_real_escape_string($conn, $_POST['password']);
     
 
@@ -17,34 +17,35 @@ $password = mysqli_real_escape_string($conn, $_POST['password']);
     $sql = "SELECT * FROM users WHERE Email='$email'";
     $result = mysqli_query($conn, $sql);
 
-    if ($result){
-       
+    if ($result)
+    {
         // User found, verify password
         $row = mysqli_fetch_assoc($result);
-        if (password_verify($password, $row['Password'])) {
+        if (password_verify($password, $row['Password'])) 
+        {
             
             // Password is correct, redirect to respective dashboard
             $_SESSION['UserID'] = $row['UserID'];
             $_SESSION['UserType'] = $row['UserType'];
+            var_dump($row);
 
-            if ($row['UserType'] == 'doctor') {
+            if ($row['Role'] == 'doctor') 
+            {
                 header("Location: doctor_dashboard.php");
                 exit();
             }
-    
             header("Location: User_dashboard.php");
-            
             exit();
-    
-
-
-    } else {
-            // Password incorrect, display error message
+        } 
+    else 
+    {
         $_SESSION['error_message']  = "Invalid email or password. Please try again.";
         header("Location:login.php");
         exit();
-     }
-    }else{
+    }
+    }
+    else
+    {
 
         echo "I am in else";
         $_SESSION['error_message']  = "Invalid email or password. Please try again.";

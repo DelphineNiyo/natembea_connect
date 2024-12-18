@@ -13,19 +13,25 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $date = $_POST['date'];
     $time = $_POST['time'];
     $userID = $_POST['user_id'];
-    $status = "";
-    $doctor_id = 1;
+    $status = "pending";
+    
 
-    // Prepare and execute SQL statement to insert data into appointments table
-    $stmt = $conn->prepare("INSERT INTO appointments (`UserID`, `DoctorID`, `AppointmentDate`, `AppointmentTime`, `Status`, `Description`) VALUES ($userID, $doctor_id, $date, $time, $status, $reason)");
+    
+   
+   
+    // Prepare the SQL statement with placeholders
+    $stmt = $conn->prepare("INSERT INTO `appointments` (`UserID`, `DoctorID`, `AppointmentDate`, `AppointmentTime`, `Status`, `Description`) VALUES (?, ?, ?, ?, ?, ?)");
+
+    
     
     // Check if the SQL statement was prepared successfully
     if ($stmt === false) {
-        die("Error: " . $conn->error);
+        die("Error in preparing the SQL statement: " . $conn->error);
     }
 
     // Bind parameters to the SQL statement
-    $stmt->bind_param("ssssssss", $name, $email, $phone, $doctor, $reason, $date, $time, $userID);
+    // "i" for integer, "s" for string (adjust the types as needed)
+    $stmt->bind_param("iissss", $userID, $doctor, $date, $time, $status, $reason);
 
     // Execute the SQL statement
     if ($stmt->execute()) {
@@ -34,8 +40,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         exit();
     } else {
         // Error occurred while saving appointment
-        echo "Error: " . $stmt->error;
+        echo "Error in execution: " . $stmt->error;
     }
+
 
     // Close statement
     $stmt->close();

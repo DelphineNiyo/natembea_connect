@@ -1,3 +1,8 @@
+<?php
+
+session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -130,15 +135,35 @@
     </ul>
 
     <div class="container">
-        <h1>Feedback and Support</h1>
-        <p>Your feedback is very welcome and important to us. Please fill out the form below and let us know what you think.</p>
+        <h1>Your Feedback</h1>
+        <p>Your feedback is very welcome and important to us. Please let us know what you think.</p>
         <form class="feedback-form" action="save_feedback.php" method="post">
-            <label for="name">Your Name:</label>
-            <input type="text" id="name" name="name" required>
-            <label for="email">Your Email:</label>
-            <input type="text" id="email" name="email" required>
-            <label for="subject">Subject:</label>
-            <input type="text" id="subject" name="subject" required>
+            <input type='hidden' value="<?php echo isset($_SESSION['UserID']) ? $_SESSION['UserID'] : ''; ?>" id="user_id" name="user_id">
+            <!-- <label for="subject">Type:</label> -->
+            <!-- <select id="type" name="type" required>
+                <option value="">Select Feedback Type</option>
+                <option value="medical">Medical</option>
+                <option value="support">Support</option>
+            </select> -->
+            <label for="subject">Select a doctor:</label>
+            <select id="doctor" name="doctor" required style="margin-bottom:20px;">
+                <?php
+                // Include the doctor_list.php file
+                include 'doctor_list.php';
+
+                // Check if any doctors were fetched
+                if (isset($doctorList) && !empty($doctorList)) {
+                    foreach ($doctorList as $doctor) {
+                      
+                        echo "<option value='" . $doctor["UserID"] . "'>" . $doctor["FirstName"] . " " . $doctor["LastName"] . "</option>";
+
+                    }
+                } else {
+                    echo "<option value=''>No doctors found</option>";
+                }
+                
+                ?>
+            </select>
             <label for="message">Your Message:</label>
             <textarea id="message" name="message" required></textarea>
             <input type="submit" value="Submit">

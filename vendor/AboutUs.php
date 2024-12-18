@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>About Us - Natembea Health Center</title>
+  <title>About Natembea Health Center</title>
   <style>
     body {
       font-family: Arial, sans-serif;
@@ -175,10 +175,9 @@
     <div class="container">
       <img class="logo" src="../Images/logo.jpg" alt="Logo">
       <div class="navigation">
-        <a href="Index.php">Home</a>
+        <a href="index.php">Home</a>
         <a href="AboutUs.php">About Us</a>
         <a href="ourservices.php">Our Services</a>
-        <a href="Blog&News.php">Blog & News</a>
         <a href="contactUs.php">Contact Us</a>
       </div>
     </div>
@@ -192,8 +191,8 @@
           <img src="../Images/Natembea_img.jpg" alt="About Us Image">
         </div>
         <div class="about-text">
-          <p>Students of Ashesi shared their concerns about the distance of the health centre from student residents and also about how they have to wait in long queues to get medical attention. They contacted us to build a system to help bring the health centre closer to them. Also, information seem to get lost as a result of an absence in a system to keep track of patient records.</p>
-          <p>This project targets students and also the health workers. The system is designed to connect students to the health centre through online booking of appointments, online chat or call services with nurses. Also, the system provides a means for health workers to store and keep track of records of each patient who visits the hospitals.</p>
+          <p>Being a member of Ashesi community, I noticed the struggle that Ashesi community member face concerning the distance of the health centre from their relative residents to get medical attention. As a solution, I took an initiative to build a system to help bring the health centre closer to them and make it easy for their health information to be kept safe.</p>
+          <p>This platform is of importance to both students and all other Ashesi community memjbers. It is designed to connect students and other members of this community to the health centre through online booking of appointments, online chat or call services with nurses. Also, the system provides a means for health workers to store and keep track of records of each patient who visits the hospitals.</p>
         </div>
       </div>
     </div>
@@ -201,22 +200,22 @@
 
   <div class="team-section">
     <div class="container">
-      <h2>Meet Our Team</h2>
+      <h2>MeetThe Health Center Team</h2>
       <div class="team-container">
         <div class="team-member">
-          <img src="../Images/doctor2.jpeg" alt="Team Member 1">
+          <img src="../Images/doctor2.jpg" alt="Team Member 1">
           <h3>Dr. Josiane Izere</h3>
           <p>Head of Dentistry Department</p>
         </div>
         <div class="team-member">
           <img src="../Images/doctor1.jpg" alt="Team Member 2">
-          <h3>Serge Ishimwe</h3>
+          <h3>Dr. Serge Ishimwe</h3>
           <p>Head of Ophtamology Department</p>
         </div>
         <div class="team-member">
-          <img src="../Images/doctor3.png" alt="Team Member 3">
-          <h3>Dana Shimirwa</h3>
-          <p>Information Technologist</p>
+          <img src="../Images/doctor3.jpg" alt="Team Member 3">
+          <h3>Dr.Delphine Shimirwa</h3>
+          <p>Information Technologist and Neurology Department Head</p>
         </div>
       </div>
     </div>

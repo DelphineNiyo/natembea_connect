@@ -158,7 +158,7 @@ session_start();
           <th>Reason For Appointment</th>
           <th>Appointment Date</th>
           <th>Appointment Time</th>
-          <th>CreatedAt	</th>
+          <!-- <th>CreatedAt	</th> -->
           <th>Actions</th>
         </tr>
       </thead>
@@ -167,7 +167,8 @@ session_start();
       // Include the connection file
           include 'connection.php';
           // Fetch data from the "Products" table
-          $sql = "SELECT * FROM appointments";
+          $sql = "SELECT * FROM `appointments` INNER JOIN `users` ON `users`.`UserID` = `appointments`.`UserID` WHERE `Role` = 'patient'";
+  
           $result = $conn->query($sql);
 
           if ($result->num_rows > 0) {
@@ -175,11 +176,11 @@ session_start();
             while($row = $result->fetch_assoc()) {
           ?>
           <tr>
-            <td><?php echo $row["FullName"]; ?></td>
-            <td><?php echo $row["EmailAddress"]; ?></td>
-            <td>$<?php echo $row["PhoneNumber"]; ?></td>
+            <td><?php echo $row["FirstName"]; ?></td>
+            <td><?php echo $row["Email"]; ?></td>
+            <!-- <td>$<?php echo $row["PhoneNumber"]; ?></td> -->
             <td><?php echo $row["SelectedDoctor"]; ?></td>
-            <td><?php echo $row["ReasonForAppointment"]; ?></td>
+            <td><?php echo $row["Description"]; ?></td>
             <td><?php echo $row["AppointmentDate"]; ?></td>
             <td><?php echo $row["AppointmentTime"]; ?></td>
             <td>$<?php echo $row["CreatedAt"]; ?></td>
